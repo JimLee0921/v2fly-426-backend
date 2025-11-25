@@ -1,0 +1,63 @@
+{
+	"inbounds": [
+		{
+			"port": 443,
+			"protocol": "vmess",
+			"settings": {
+				"clients": [
+					{
+						"id": "ba5a0ae5-1878-3839-9b5a-959eb5911972"
+					},
+					{
+						"id": "d2119f70-58b3-4725-b0f1-5e11a3f3142f",
+						"email": "simon@timechee.top"
+					}
+				]
+			},
+			"streamSettings": {
+				"network": "ws",
+				"security": "tls",
+				"tlsSettings": {
+					"allowInsecure": false,
+					"certificates": [
+						{
+							"certificateFile": "/etc/v2ray/timechee.crt",
+							"keyFile": "/etc/v2ray/timechee.key"
+						}
+					]
+				}
+			}
+		}
+	],
+	"outbounds": [
+		{
+			"tag": "directout",
+			"protocol": "freedom",
+			"settings": {}
+		},
+		{
+			"protocol": "socks",
+			"tag": "warp",
+			"settings": {
+				"servers": [
+					{
+						"address": "127.0.0.1",
+						"port": 5555
+					}
+				]
+			}
+		}
+	],
+	"routing": {
+		"domainStrategy": "AsIs",
+		"rules": [
+			{
+				"type": "field",
+				"user": [
+					"simon@timechee.top"
+				],
+				"outboundTag": "warp"
+			}
+		]
+	}
+}
